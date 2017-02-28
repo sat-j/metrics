@@ -18,8 +18,9 @@
     under the License.
 -->
 <html>
-    <head>
-        <!--
+
+<head>
+    <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
@@ -28,22 +29,78 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+    <!--        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <link rel="stylesheet" type="text/css" href="lib/jquery-mobile/css/rogtata.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/jquery-mobile/css/jquery.mobile.icons.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/jquery-mobile/css/jquery.mobile.structure-1.4.5.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Hello World</title>
+</head>
+
+<body>
+
+    <div data-role="page" id="chartPage1" class="chart-page" data-prev="" data-next="#chartPage2">
+        <div data-role="header">
+            <h1>Rogers QA Dashboard</h1>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+        <div role="main" class="ui-content">
+            
+            <div class="chart-container" id="myPieChart" />
+             
+        </div>
+        <div data-role="footer">
+            <h4>Copyright TCS</h4>
+        </div>
+        <!-- /footer -->
+    </div>
+
+    <div data-role="page" id="chartPage2" data-prev="#chartPage1" data-next="#chartPage3">
+        <div data-role="header">
+            <h1>Rogers QA Dashboard</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div class="chart-container" id="columnChart" />
+        </div>
+        <div data-role="footer">
+            <h4>Copyright TCS</h4>
+        </div>
+        <!-- /footer -->
+    </div>
+    
+    <div data-role="page" id="chartPage3" data-dom-cache="true" data-prev="#chartPage2" data-next="">
+        <div data-role="header">
+            <h1>Rogers QA Dashboard</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div class="chart-container" id="columnChart1" />
+        </div>
+        <div data-role="footer">
+            <h4>Copyright TCS</h4>
+        </div>
+        <!-- /footer -->
+    </div>
+<!---->
+<!--    <div data-role="page" id="city" class="demo-page" data-dom-cache="true" data-theme="b" data-prev="prevCity" data-next="nextCity" data-url="city">
+    <div role="main" class="ui-content">
+        <div id="trivia-city" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="a">
+            <a href="#" data-rel="back" class="ui-btn ui-btn-right ui-btn-b ui-btn-icon-notext ui-icon-delete ui-corner-all">Close</a>
+            <p>Here some text.</p>
+        </div>
+    </div>
+</div>-->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/jquery-mobile/js/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+</body>
+
 </html>
